@@ -31,12 +31,38 @@ SET message "Hello World" //Output: "OK"
 For GET -
 
 ```
-#Syntax
+//Syntax
 
 GET key
 
-#Example
+//Example
 
 GET message //Output: "Hello World"
 ```
-<!-- Test comment -->
+
+Optional Arguments
+
+```
+EX/PX/EXAT/PXAT/KEEPTTL - Options for when the value should  expire
+
+NX/XX - Options for setting values based on key exists or not
+```
+<br>
+
+### **NX | XX**
+
+For NX - a value is set if the key does not already exist in the database
+
+```
+SET name "John" NX
+
+//result will return OK if no key 'name' exists in database else will return null
+```
+
+For XX - a value is set if the key does already exist in the database
+
+```
+SET name "John" XX
+
+//result will return OK if key already exists in database else will return null
+```
